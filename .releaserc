@@ -1,0 +1,24 @@
+{
+  "plugins": [
+    ["@semantic-release/commit-analyzer", {
+      "preset": "angular",
+      "releaseRules": [
+        {"type": "chore", "release": "patch"}
+      ]
+    }],
+    "@semantic-release/release-notes-generator",
+    ["@semantic-release/changelog", {
+      "changelogFile": "CHANGELOG.md"
+    }],
+    "@semantic-release/npm",
+    ["@semantic-release/git", {
+      "assets": ["docs", "package.json", "CHANGELOG.md"],
+      "message": "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
+    }],
+    ["@semantic-release/github", {
+      "assets": [
+        "WebDriverAgentRunner-Runner.zip",
+        "WebDriverAgentRunner_tvOS-Runner.zip"
+    ]}],
+  ]
+}
